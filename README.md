@@ -33,3 +33,23 @@ Total 11 colunas:
 | **transicao**            | `boolean` (`True/False`) ou `int` (0/1)      | Indicador de que houve transição de nível de maturidade (ex.: passou do nível 2 para 3).                                                                                            | Fundamental para identificar o momento ideal da transição e associar a variáveis explicativas. |
 
 
+## Metodologias Estatísticas e Ferramentas Utilizadas
+O documento detalha o uso das seguintes bibliotecas e técnicas:
+
+*   **`pandas` e `numpy`:** Para manipulação e análise de dados.
+*   **`matplotlib` e `seaborn`:** Para visualização de dados (boxplots, histogramas, scatter plots).
+*   **`scipy.stats`:** Para testes estatísticos, como ANOVA (`stats.f_oneway`).
+*   **`sklearn.preprocessing.LabelEncoder`:** Para codificação de variáveis categóricas (ex: 'porte') para uso em algoritmos de machine learning.
+*   **`sklearn.cluster.KMeans`:** Para clusterização, visando identificar padrões não evidentes nos dados.
+*   **`lifelines.KaplanMeierFitter`:** Para análise de sobrevivência, utilizada para prever o momento ideal de transição entre os níveis de maturidade.
+
+## Fluxo de Análise
+1.  **Exploração dos Dados:** Visualização das primeiras linhas do DataFrame, informações gerais (`df.info()`) e estatísticas descritivas (`df.describe()`).
+2.  **Visualização Inicial:** Boxplots para entender a relação entre `nivel_maturidade` e variáveis como `faturamento`, `n_pessoas`, `nota_observada` e `tempo_registro`. Histogramas para distribuição geral das variáveis.
+3.  **Identificação de Alto Desempenho:** Definição de 'alto desempenho' (ex: top 10% das notas em cada nível) e análise de como variáveis como faturamento se comportam para esses grupos.
+4.  **Testes Estatísticos:** Aplicação de testes ANOVA para comparar variáveis contínuas entre os níveis de maturidade.
+5.  **Clusterização:** Uso do algoritmo K-Means para agrupar participantes com base em variáveis numéricas (`tempo_registro`, `porte_encoded`, `faturamento`, `n_pessoas`), buscando padrões ocultos. A variável 'porte' é codificada antes da clusterização.
+6.  **Análise de Sobrevivência:** Utilização do modelo Kaplan-Meier para analisar a probabilidade de permanência em um nível antes da transição, com base no `tempo_registro`.
+7.  **Análise de GAP:** Cálculo do `gap` (`nota_maxima_esperada` - `nota_observada`) e análise de sua distribuição por ano e nível de maturidade através de estatísticas descritivas e boxplots.
+
+
