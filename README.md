@@ -1,4 +1,6 @@
-<img src="Sobrevivência até transição de nível.png" alt="Imagem do Projeto" width="400"/>
+<p align="center">
+  <img src="Sobrevivência até transição de nível.png" alt="Imagem do Projeto" width="400"/>
+</p>
 
 # Análise de GAP (Cálculo e Análise de GAP com base no ano e nível de maturidade)
 Autor: Rogério R R Coelho
