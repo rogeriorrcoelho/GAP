@@ -32,13 +32,4 @@ Total 11 colunas:
 | **nota**                 | `float`                                      | Nota final ponderada ou ajustada, caso haja normalização ou cálculo derivado (se não houver ajuste, pode ser redundante com `nota_observada`).                                      | Pode ser usada em análises comparativas ou validação da consistência dos dados. |
 | **transicao**            | `boolean` (`True/False`) ou `int` (0/1)      | Indicador de que houve transição de nível de maturidade (ex.: passou do nível 2 para 3).                                                                                            | Fundamental para identificar o momento ideal da transição e associar a variáveis explicativas. |
 
----
-
-## Observações e Sugestões
-
-- **Padronização de unidades:** defina se `tempo_registro` será em meses ou anos e documente claramente.  
-- **Variáveis categóricas:** `porte` e `nivel_maturidade` devem ser bem definidos (ex.: micro, pequeno, médio; ou N1 a N4).  
-- **Nota final vs. observada:** se `nota` for apenas a `nota_observada` normalizada, documente o cálculo.  
-- **transicao:** caso represente mais do que “sim/não”, como o *ano da transição* ou *nível de destino*, considere detalhar em colunas separadas.
-           
 
